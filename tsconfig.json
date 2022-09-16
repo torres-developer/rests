@@ -5,8 +5,8 @@
 			"node"
 		],
 		"declaration": true,
-		"outDir": "./lib"//,
-//		"skipLibCheck": true
+		"outDir": "./lib",
+		"skipLibCheck": true
 	},
 	"include": [
 		"src/**/*"
