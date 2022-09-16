@@ -1,0 +1,15 @@
+{
+	"extends": "@tsconfig/node18-strictest-esm/tsconfig.json",
+	"compilerOptions": {
+		"types": [
+			"node"
+		],
+		"declaration": true,
+		"outDir": "./lib"//,
+//		"skipLibCheck": true
+	},
+	"include": [
+		"src/**/*"
+	],
+	"$schema": "https://json.schemastore.org/tsconfig"
+}
