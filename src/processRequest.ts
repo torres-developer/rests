@@ -39,11 +39,11 @@ async function getServerCreator(): Promise<Function>  {
 }
 
 /*
- * GET 0 identifier
- * PUT 0 identifier
- * PATCH 0 identifier
- * DELETE identifier
- * POST 0
+ * GET 200 + pages + sort + filter = 200 / 404
+ * PUT 405 or update/replace every resource of collection = 200 / 204 / 404
+ * PATCH 405 or modify collection = 200 / 204 / 404
+ * DELETE 405 or delete collection = 200 / 404
+ * POST 201 + Location = 404 / 409 Already exists
  *
  * 200 OK *
  * 201 CREATED POST PUT (POST (and PUT) needs header Location with URI to resource)
@@ -68,7 +68,13 @@ async function getServerCreator(): Promise<Function>  {
  * HAL/Siren/Collection/JSON-LD
  */
 
-type HTTPVerbs = "GET" | "PUT" | "DELETE" | "POST" | "PATCH";
+type HTTPVerbs = "GET" |
+  "PUT" |
+  "DELETE" |
+  "POST" |
+  "PATCH" |
+  "OPTIONS" |
+  "HEAD";
 
 type Entries = Partial<Record<
   Lowercase<HTTPVerbs>,
